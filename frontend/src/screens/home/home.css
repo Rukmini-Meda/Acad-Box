@@ -1,0 +1,25 @@
+.title{
+    margin: 0;
+}
+
+.home{
+    background-color: aqua;
+    padding: 30px;
+    margin: 0;
+    color: black;
+    text-align: center;
+}
+
+button{
+    margin: 10px;
+    padding: 20px;
+    background-color: blanchedalmond;
+    color: black;
+    font-weight: bold;
+
+}
+
+.box{
+    width: 10vw;
+    height: 10vh;
+}

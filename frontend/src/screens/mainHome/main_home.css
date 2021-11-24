@@ -1,0 +1,31 @@
+#mainHome{
+    background-color: #1565c0;
+    text-align: center;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100vh;
+}
+
+#sizedBox{
+    height: 30vh;
+    width: 30vh;
+}
+
+h1{
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-size: 100px;
+}
+
+h6{
+    font-size: 30px;
+}
+
+.no-underline{
+    text-decoration: none;
+}
+
+.m-10{
+    margin: 10px;
+}
