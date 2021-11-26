@@ -5,7 +5,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: acad-box-server:rukmini12/acad-box
+    image: rukmini12/acad-box:server
     container_name: acad-box-node-server
     command: nodemon server.js
     volumes:
@@ -25,7 +25,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    image: acad-box-client:rukmini12/acad-box
+    image: rukmini12/acad-box:client
     container_name: acad-box-react-client
     command: npm start
     volumes: 
