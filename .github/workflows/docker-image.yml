@@ -22,5 +22,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker images for frontend and backend using docker-compose
       run: docker-compose build
-    - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/acad-box
+    - name: Docker Push Frontend Image
+      run: docker push ${{secrets.DOCKER_USER}}/acad-box:client
+    - name: Docker Push Backend Image
+      run: docker push ${{secrets.DOCKER_USER}}/acad-box:server
