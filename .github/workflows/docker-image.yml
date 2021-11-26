@@ -21,8 +21,8 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Backend Docker image
-      run: docker build ./backend --file Dockerfile --tag acad-box-node-server:$(date +%s)
+      run: docker build . --file ./backend/Dockerfile --tag acad-box-node-server:$(date +%s)
     - name: Build the Frontend Docker image
-      run: docker build ./frontend --file Dockerfile --tag acad-box-react-client:$(date +%s)
+      run: docker build . --file ./frontend/Dockerfile --tag acad-box-react-client:$(date +%s)
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/acad-box
