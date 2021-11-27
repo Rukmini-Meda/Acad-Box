@@ -24,39 +24,43 @@ const transporter = nodemailer.createTransport({
 })
 
 router.patch("/editEvent", (req, res) => {
-    const eventId = req.query.eventId
-    const newData = req.body
-    ClassesModel.findOne({
-        _id: eventId
-    }).then(event => {
-        console.log(event)
-        const keys = Object.keys(newData)
-        console.log(keys)
-        keys.forEach(key => {
-            
-            if(key == "numberOfStudents" || key == "percentageOfStudentsAllowed"){
-                const bookedSeats = (event["numberOfStudents"] * (event["percentageOfStudentsAllowed"]/100)) - event["seats"]
-                event[key] = newData[key]
-                event["seats"] = (event["numberOfStudents"] * (event["percentageOfStudentsAllowed"]/100)) - bookedSeats
-            }
-            else{
-                event[key] = newData[key]
-            }
-        })
-        console.log(event)
-        event.save().then(result => {
-            console.log(result)
-            return res.status(200).json(result)
+    try{
+        const eventId = req.query.eventId
+        const newData = req.body
+        ClassesModel.findOne({
+            _id: eventId
+        }).then(event => {
+            console.log(event)
+            const keys = Object.keys(newData)
+            console.log(keys)
+            keys.forEach(key => {
+                
+                if(key == "numberOfStudents" || key == "percentageOfStudentsAllowed"){
+                    const bookedSeats = (event["numberOfStudents"] * (event["percentageOfStudentsAllowed"]/100)) - event["seats"]
+                    event[key] = newData[key]
+                    event["seats"] = (event["numberOfStudents"] * (event["percentageOfStudentsAllowed"]/100)) - bookedSeats
+                }
+                else{
+                    event[key] = newData[key]
+                }
+            })
+            console.log(event)
+            event.save().then(result => {
+                console.log(result)
+                return res.status(200).json(result)
+            }).catch(err => {
+                console.log(err.response.data)
+                errors.message = err.response.data
+                return res.status(500).json(errors)
+            })
         }).catch(err => {
             console.log(err.response.data)
             errors.message = err.response.data
             return res.status(500).json(errors)
         })
-    }).catch(err => {
-        console.log(err.response.data)
-        errors.message = err.response.data
-        return res.status(500).json(errors)
-    })
+    }catch(err){
+        console.log(err)
+    }
 })
 
 router.patch("/bookSeat", (req, res) => {

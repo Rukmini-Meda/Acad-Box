@@ -1,0 +1,23 @@
+{
+  "name": "acad-box",
+  "version": "1.0.0",
+  "description": "A digital tool box to boost productivity of the academic community.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rukmini-Meda/Acad-Box.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rukmini-Meda/Acad-Box/issues"
+  },
+  "homepage": "https://github.com/Rukmini-Meda/Acad-Box#readme",
+  "dependencies": {
+    "concurrently": "^6.4.0"
+  }
+}

@@ -5,6 +5,7 @@ import {connect} from "react-redux"
 import {withRouter} from "react-router-dom"
 import HomeIcon from '@mui/icons-material/Home';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import CircularProgress from '@mui/material/CircularProgress'
 
 class Header extends React.Component{
 
@@ -71,11 +72,17 @@ class Header extends React.Component{
           <HomeIcon />
         </IconButton>
       </Toolbar>)
+      const loader = (
+        <CircularProgress />
+      )
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
-        {this.props.auth.isAuthenticated ? authSection : notAuthSection}
+          {this.props.auth.isAuthenticated ? authSection : notAuthSection}
         </AppBar>
+        <center>
+          {this.props.auth.loading ? loader : <></>}
+        </center>
       </Box>
     );
   }

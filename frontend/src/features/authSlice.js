@@ -7,6 +7,12 @@ export const setUserLoading = () => {
     }
 }
 
+export const unsetUserLoading = () => {
+    return {
+        type: TYPES.USER_NOT_LOADING
+    }
+}
+
 export const setCurrentUser = (decoded) => {
     return {
         type: TYPES.SET_CURRENT_USER,
@@ -35,6 +41,11 @@ export const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: true
+            }
+        case TYPES.USER_NOT_LOADING:
+            return {
+                ...state,
+                loading: false
             }
         default:
             return state;

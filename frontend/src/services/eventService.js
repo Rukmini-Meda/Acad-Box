@@ -5,6 +5,7 @@ import CalendarEvent from "../models/calendarEvent"
 import { setClass, setClasses } from "../features/classesSlice"
 import { setCreateClassErrors, unsetCreateClassErrors, setEditEventErrors, setEventViewErrors } from "../features/errorsSlice"
 import axiosConfig from "./axiosConfig"
+import { setUserLoading, unsetUserLoading } from "../features/authSlice"
 
 export const cancelEvent = (eventId, history) => (dispatch) => {
     axios.delete(API_BASE_URL + "classes/removeEvent?eventId=" + eventId, axiosConfig).then(res => {
@@ -38,16 +39,19 @@ export const bookSeat = (eventId, userId) => (dispatch) => {
     axios.patch(API_BASE_URL + "classes/bookSeat?eventId=" + eventId + "&studentId=" + userId, axiosConfig).then(res => {
         console.log("Booked a seat")
         console.log(res.data)
+        dispatch(unsetUserLoading())
         dispatch(setClass(res.data.event))
         alert(res.data.message)
         console.log("Done")
     }).catch(err => {
         console.log(err)
+        dispatch(unsetUserLoading())
         dispatch({
             type: "errors/setEventViewErrors",
             payload: err.response.data
         })
     })
+    dispatch(setUserLoading())
 }
 
 export const fetchEventDetails = (classId) => (dispatch) => {

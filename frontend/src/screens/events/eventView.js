@@ -60,6 +60,8 @@ class EventView extends React.Component{
         const isFaculty = localStorage.getItem("isFaculty")
         const doses = localStorage.getItem("doses")
         const {errors} = this.props
+        const endTimeObject = new Date(classData.endTime)
+        const startTimeObject = new Date(classData.startTime)
         return (
             <>
                 <Header></Header>
@@ -148,7 +150,7 @@ class EventView extends React.Component{
                                 <TableCell component="th" scope="row">
                                     Start Time
                                 </TableCell>
-                                <TableCell>{classData.startTime} </TableCell>
+                                <TableCell>{startTimeObject.getDate()} - {startTimeObject.getMonth()} - {startTimeObject.getFullYear()} at {startTimeObject.getHours()}:{startTimeObject.getMinutes()}:{startTimeObject.getSeconds()} </TableCell>
                                 {/* <TableCell> <Button id="startTime" variant="contained" color="primary" onClick={this.onEdit}>Edit</Button></TableCell> */}
                             </TableRow>
                             <TableRow
@@ -158,7 +160,7 @@ class EventView extends React.Component{
                                 <TableCell component="th" scope="row">
                                     End Time
                                 </TableCell>
-                                <TableCell>{classData.endTime} </TableCell>
+                                <TableCell>{endTimeObject.getDate()} - {endTimeObject.getMonth()} - {endTimeObject.getFullYear()} at {endTimeObject.getHours()}:{endTimeObject.getMinutes()}:{endTimeObject.getSeconds()}</TableCell>
                                 {/* <TableCell> <Button id="endTime" variant="contained" color="primary" onClick={this.onEdit}>Edit</Button></TableCell> */}
                             </TableRow>
                             <TableRow

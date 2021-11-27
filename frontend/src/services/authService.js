@@ -2,7 +2,7 @@ import axios from "axios"
 import setAuthToken from "../utils/set_auth_token";
 import jwt_decode from "jwt-decode"
 import {API_BASE_URL, ACTION_TYPES, SLICES} from "../utils/constants"
-import { setCurrentUser } from "../features/authSlice";
+import { setCurrentUser, setUserLoading, unsetUserLoading } from "../features/authSlice";
 import axiosConfig from "./axiosConfig"
 
 export const loginUser = (userData) => (dispatch) => {
@@ -20,6 +20,7 @@ export const loginUser = (userData) => (dispatch) => {
             console.log("set auth token done")
             const decoded = jwt_decode(token);
             console.log("ABout to dispatch action")
+            dispatch(unsetUserLoading())
             dispatch(setCurrentUser(decoded))
             dispatch({
                 type: SLICES.ERRORS + "/" + ACTION_TYPES.SET_LOGIN_ERRORS,
@@ -27,10 +28,14 @@ export const loginUser = (userData) => (dispatch) => {
             })
             console.log("Done")
         })
-        .catch(err => dispatch({
-            type: SLICES.ERRORS + "/" + ACTION_TYPES.SET_LOGIN_ERRORS,
-            payload: err.response.data
-        }))
+        .catch(err => {
+            dispatch(unsetUserLoading())
+            dispatch({
+                type: SLICES.ERRORS + "/" + ACTION_TYPES.SET_LOGIN_ERRORS,
+                payload: err.response.data
+            })
+        })
+        dispatch(setUserLoading())
 }
 
 export const logoutUser = () => (dispatch) => {
