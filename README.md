@@ -27,6 +27,8 @@ A digital tool box to boost productivity of the academic community.
 #### Email notification to students after booking a seat
 - Email notification will be sent to students once their seat is booked
 
+- Various edge cases have been handled based on scenario and operational errors.
+
 ## Tech Stack
 ### Frontend
 - Material UI
@@ -45,9 +47,10 @@ A digital tool box to boost productivity of the academic community.
 - Docker
 - GitHub Actions
 
-## Architecture
-### Application Architecture
-### Continuous Integration Architecture
+## Application Architecture
+
+![Application Architecture](https://user-images.githubusercontent.com/44504940/143773070-a7440bb7-1130-4dee-8a17-cb6974233210.jpg)
+
 
 ## How to run?
 
@@ -105,10 +108,6 @@ Then,
 ## Supporting Documents
 
 Supporting Documents including .env files can be found in this link
-
-## API Docs
-
-Swagger API Docs can be found in this link
 
 ## Demo Video
 
