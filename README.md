@@ -28,7 +28,7 @@ A digital tool box to boost productivity of the academic community.
 - Students can book a seat and register if there are seats available
 #### Email notification to students after booking a seat
 - Email notification will be sent to students once their seat is booked
-
+- Do check in the spam folder to verify for email from the application.
 - Various edge cases have been handled based on scenario and operational errors.
 
 ## Tech Stack
