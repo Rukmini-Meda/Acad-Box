@@ -18,6 +18,8 @@ A digital tool box to boost productivity of the academic community.
 - Faculty users can schedule a class by clicking on add an event
 #### View a class or event
 - Event or class can be viewed by clicking on that card from the calendar
+#### Cancel a class
+- Faculty can cancel classes
 #### View Profile
 - View Profile from top bar
 #### Edit Username
