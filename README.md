@@ -105,7 +105,7 @@ Demo Video can be found at this [link](https://drive.google.com/file/d/1EXTzpord
 - Mongoose JS
 - Nodemailer
 ### Database
-- MongoDB
+- MongoDB Atlas
 ### Continuous Integration
 - Docker
 - GitHub Actions
