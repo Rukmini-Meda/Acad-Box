@@ -70,14 +70,12 @@ router.patch("/bookSeat", (req, res) => {
         ClassesModel.findOne({
             _id: eventId
         }).then(event => {
+            if(event.seats <= 0){
+                return res.status(400).json("No available seats. Please try again later")
+            }
         UserModel.findOne({
                 _id: studentId
-            }).then(student => {
-                if(event.seats <= 0){
-                    return res.status(400).json("No available seats. Please try again later")
-                }
-                
-                
+            }).then(student => { 
                 if(event.registeredStudents !== undefined){
                     let alreadyBooked = false
                     let total = event.registeredStudents.length
@@ -100,58 +98,6 @@ router.patch("/bookSeat", (req, res) => {
                 event.registeredStudents.push(studentId)
                 event.save().then(result => {
                     console.log(event)
-                    if(event.seats === 0){
-                        console.log(
-                            "Are you here?"
-                        )
-                        const facultyId = event.createdBy
-                        // let studentsList = []
-                        // let total = event.registeredStudents.length
-                        // for(let i = 0; i < total; i ++){
-                        //     const obj = event.registeredStudents[i]
-                        //     console.log(obj)
-                        //     let firstName, lastName
-                        //     UserModel.findOne({
-                        //         _id: obj
-                        //     }).then(user =>{
-                        //         firstName = user.firstName
-                        //         lastName = user.lastName
-                        //         console.log(firstName + " " + lastName)
-                        //         studentsList.push(firstName + " " + lastName)
-                        //     }).catch(err => {
-                        //         console.log(err)
-                        //     })
-                        // }
-                        // console.log(studentsList)
-                        UserModel.findOne({
-                            _id: facultyId
-                        }).then(faculty => {
-                            let emailBody = "Hello " + faculty.firstName + " " + faculty.lastName + ",\n All seats are booked for your scheduled class, " + event.courseName
-                            // let total = studentsList.length
-                            // for(let i = 0; i < total; i ++){
-                            //     emailBody += studentsList[i]
-                            // }
-                            let mailOptions = {
-                                from: emailCredentials.GMAIL_ID,
-                                to: faculty.email,
-                                text: emailBody,
-                                subject: "CLASS CONFIRMATION: " + event.courseName + " - All seats are booked."
-                            }    
-                            transporter.sendMail(mailOptions, (err, info) => {
-                                if(err){
-                                    console.log(err)
-                                    console.log("Couldn't mail faculty")
-                                }
-                                else{
-                                    console.log(result)
-                                    console.log("Email is sent to faculty successfully")
-                                }
-                            })
-                        }).catch(err => {
-                            console.log(err)
-                            return res.status(500).json(err)
-                        })
-                    }
                     let emailBody = "Hello " + student.firstName + " " + student.lastName + ",\n This email is for confirming your booking information. Please find the details below:\nCourse Name: " + event.courseName + "\n" + "Time: " + event.startTime + " - " + event.endTime + "\n. Please be on time."
                     let mailOptions = {
                         from: emailCredentials.GMAIL_ID,

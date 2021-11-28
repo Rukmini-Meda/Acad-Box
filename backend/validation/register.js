@@ -75,6 +75,10 @@ module.exports = function validateRegisterFormData(data){
         errors.vaccine = "Only alphabets allowed for vaccine name"
     }
 
+    if(data.doses === 0){
+        errors.doses = "You should be vaccinated with atleast one dose to be able to use the app."
+    }
+
     return {
         errors,
         isValid: isEmpty(errors)

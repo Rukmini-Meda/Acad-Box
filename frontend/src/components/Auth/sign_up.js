@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import {registerUser} from "../../services/authService"
 import isEmpty from "is-empty"
 import Header from "../header/header"
+import Alert from "@mui/material/Alert"
 
 class Register extends React.Component{
 
@@ -266,6 +267,9 @@ class Register extends React.Component{
                         <MenuItem value={1}>1</MenuItem>
                         <MenuItem value={2}>2</MenuItem>
                       </Select>
+                      {errors && errors.doses &&
+                        <Alert severity="error">{errors.doses}</Alert>
+                      }
                     </FormControl>
                   </Grid>
                   {/* <Grid item xs={12}>
