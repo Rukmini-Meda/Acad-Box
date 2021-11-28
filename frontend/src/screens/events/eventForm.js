@@ -1,6 +1,6 @@
 import React from "react"
 import {Container, Typography, Box, CssBaseline, Grid, TextField, Button} from "@material-ui/core"
-import SizedBox from "../../components/customSizedBox/sized_box.js"
+import SizedBox from "../../components/CustomSizedBox/sized_box.js"
 import {PropTypes} from "prop-types"
 import {createClass} from "../../services/eventService"
 import {withRouter} from "react-router"

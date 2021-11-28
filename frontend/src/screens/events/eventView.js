@@ -11,7 +11,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import SizedBox from "../../components/customSizedBox/sized_box"
+import SizedBox from "../../components/CustomSizedBox/sized_box"
 import {bookSeat, editEvent, cancelEvent} from "../../services/eventService"
 import Alert from "@mui/material/Alert"
 import jwt_decode from "jwt-decode"

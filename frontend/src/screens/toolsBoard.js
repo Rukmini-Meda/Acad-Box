@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { CardActionArea } from '@material-ui/core';
 import Header from "../components/header/header"
 import {Grid} from "@material-ui/core"
-import SizedBox from "../components/customSizedBox/sized_box";
+import SizedBox from "../components/CustomSizedBox/sized_box";
 import pic from "../assets/oms_icon_toolsboard.png"
 
 class ToolsBoard extends React.Component{

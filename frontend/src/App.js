@@ -6,10 +6,10 @@ import setAuthToken from './utils/set_auth_token';
 import jwt_decode from "jwt-decode";
 import { setCurrentUser } from "./features/authSlice";
 import { logoutUser } from './services/authService';
-import Register from './components/auth/sign_up';
-import LogIn from './components/auth/sign_in'
+import Register from './components/Auth/sign_up';
+import LogIn from './components/Auth/sign_in'
 import ToolsBoard from './screens/toolsBoard';
-import PrivateRoute from './components/customRoutes/private_route'
+import PrivateRoute from './components/CustomRoutes/private_route'
 import MyCalendar from "./screens/calendar/calendar"
 import EventForm from './screens/events/eventForm';
 import EventView from "./screens/events/eventView"

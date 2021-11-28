@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Container, CssBaseline, Box,
    Typography, Grid, TextField, Button, FormControl, 
    InputLabel, Select, MenuItem } from "@material-ui/core";
-import SizedBox from "../customSizedBox/sized_box";
+import SizedBox from "../CustomSizedBox/sized_box";
 import classNames from "classnames";
 import {Link, withRouter} from "react-router-dom";
 import PropTypes from "prop-types";
