@@ -28,6 +28,8 @@ services:
     image: rukmini12/acad-box:client
     container_name: acad-box-react-client
     command: npm start
+    env_file:
+      - ./frontend/.env
     volumes: 
       - ./frontend/:/usr/app
       - /usr/app/node_modules
