@@ -31,29 +31,6 @@ A digital tool box to boost productivity of the academic community.
 - Do check in the spam folder to verify for email from the application.
 - Various edge cases have been handled based on scenario and operational errors.
 
-## Tech Stack
-### Frontend
-- Material UI
-- React JS
-- Redux
-- Axios
-- Full Calendar
-### Backend
-- Node JS
-- Express JS
-- Mongoose JS
-- Nodemailer
-### Database
-- MongoDB
-### Continuous Integration
-- Docker
-- GitHub Actions
-
-## Application Architecture
-
-![Application Architecture](https://user-images.githubusercontent.com/44504940/143773070-a7440bb7-1130-4dee-8a17-cb6974233210.jpg)
-
-
 ## How to run?
 
 There are two ways to run the app after cloning the repository. 
@@ -109,8 +86,34 @@ Then,
 
 ## Supporting Documents
 
-Supporting Documents including .env files can be found in this link
+Supporting Documents including .env files can be found in this [link](https://drive.google.com/drive/folders/1eH-Ci03UGci-U3DZoUGy-lWCl69c04U1?usp=sharing)
 
 ## Demo Video
+
+Demo Video can be found at this [link]()
+
+## Tech Stack
+### Frontend
+- Material UI
+- React JS
+- Redux
+- Axios
+- Full Calendar
+### Backend
+- Node JS
+- Express JS
+- Mongoose JS
+- Nodemailer
+### Database
+- MongoDB
+### Continuous Integration
+- Docker
+- GitHub Actions
+
+## Application Architecture
+
+![Application Architecture](https://user-images.githubusercontent.com/44504940/143773070-a7440bb7-1130-4dee-8a17-cb6974233210.jpg)
+
+
 
 
