@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile
     image: rukmini12/acad-box:server
     container_name: acad-box-node-server
+    command: nodemon server.js
     volumes:
       - ./backend/:/usr/src/app
       - /usr/src/app/node_modules
@@ -14,10 +15,10 @@ services:
       - "5000:5000"
     # depends_on:
     #   - serviceName
-    # env_file:
-    #   - ./backend/.env
+    env_file:
+      - ./backend/.env
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
     networks:
       - app-network
   client:
@@ -26,6 +27,7 @@ services:
       dockerfile: Dockerfile
     image: rukmini12/acad-box:client
     container_name: acad-box-react-client
+    command: npm start
     volumes: 
       - ./frontend/:/usr/app
       - /usr/app/node_modules
@@ -33,7 +35,6 @@ services:
       - server
     ports:
       - "3000:3000"
-      - "80:80"
     networks:
       - app-network
 networks:

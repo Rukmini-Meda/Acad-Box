@@ -14,7 +14,6 @@ import MyCalendar from "./screens/calendar/calendar"
 import EventForm from './screens/events/eventForm';
 import EventView from "./screens/events/eventView"
 import UserProfile from "./screens/profile/userProfile"
-import InstantScheduler from "./screens/instant_scheduler"
 
 if(localStorage.jwtToken){
     const token = localStorage.jwtToken;
@@ -48,7 +47,6 @@ function App() {
                 <PrivateRoute path="/createEvent" component={EventForm}/>
                 <PrivateRoute path="/profile" component={UserProfile}/>
                 <PrivateRoute path="/events/:eventId" component={EventView}/>
-                <PrivateRoute path="/instantScheduler" component={InstantScheduler}/>
             </Switch>
           </div>
       </Router>
