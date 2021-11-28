@@ -1,4 +1,4 @@
-import {Button, Container} from "@material-ui/core"
+import { Container} from "@material-ui/core"
 import { logoutUser } from "../services/authService";
 import React from "react"
 import { connect } from "react-redux";
@@ -10,10 +10,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { CardActionArea } from '@material-ui/core';
 import Header from "../components/header/header"
-import {Grid, Box} from "@material-ui/core"
-import SizedBox from "../components/CustomSizedBox/sized_box";
+import {Grid} from "@material-ui/core"
+import SizedBox from "../components/customSizedBox/sized_box";
 import pic from "../assets/oms_icon_toolsboard.png"
-import instant_meeting_pic from "../assets/instant_meeting.png"
 
 class ToolsBoard extends React.Component{
 
@@ -38,12 +37,12 @@ class ToolsBoard extends React.Component{
                             <Card>
                                 <CardActionArea
                                     onClick={this.route1} 
-                                    >
+                                >
                                     <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image={pic}
-                                    alt="Calendar Image"
+                                        component="img"
+                                        height="200"
+                                        image={pic}
+                                        alt="Calendar Image"
                                     />
                                     <CardContent>
                                     <Typography gutterBottom variant="h5" component="div">
@@ -56,54 +55,7 @@ class ToolsBoard extends React.Component{
                                 </CardActionArea>
                             </Card>
                         </Grid>
-                        {/* <Grid item md={6}>
-                            <Card>
-                                <CardActionArea
-                                    onClick={(e) => {
-                                        this.props.history.push("/instantScheduler")
-                                    }} 
-                                    >
-                                    <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image={instant_meeting_pic}
-                                    alt="Calendar Image"
-                                    />
-                                    <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                        Instant Meeting Scheduler
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        Schedule a group meeting instantly without any clashes. Easy to use. Faster to schedule.
-                                    </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                            </Card>
-                        </Grid> */}
-                        {/* <Grid item md={4}>
-                            <Card>
-                                <CardActionArea
-                                    onClick={this.route1} 
-                                    >
-                                    <CardMedia
-                                    component="img"
-                                    height="200"
-                                    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4xnlxJDgc1Ubb8dEVAkp3ADVjmnLfLaWGqg&usqp=CAU"
-                                    alt="Calendar Image"
-                                    />
-                                    <CardContent>
-                                    <Typography gutterBottom variant="h5" component="div">
-                                    Student Engagement Tool
-                                    </Typography>
-                                    <Typography variant="body2" color="text.secondary">
-                                        Schedule your class online or offline. View all your sessions. Book a seat and learn.
-                                    </Typography>
-                                    </CardContent>
-                                </CardActionArea>
-                        </Card>
-                        </Grid> */}
-                    </Grid>
-                
+                      </Grid>
                 </Container>
             </>
         );
@@ -112,7 +64,8 @@ class ToolsBoard extends React.Component{
 
 ToolsBoard.propTypes = {
     logoutUser: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => {

@@ -1,10 +1,9 @@
 import React from "react";
-import {useHistory, withRouter} from "react-router-dom"
+import {withRouter} from "react-router-dom"
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import "./calendar.css";
 import {connect} from "react-redux"
 import {getClasses} from "../../services/eventService"
 import { logoutUser } from "../../services/authService";
@@ -16,7 +15,6 @@ class MyCalendar extends React.Component{
   }
 
   handleEventClick = (e) => {
-    console.log(e)
     const eventId = e.event.id
     this.props.history.push("/events/" + eventId)
   }
@@ -25,10 +23,7 @@ class MyCalendar extends React.Component{
     let customButtons = null, headerToolbar = null
     const isFaculty = localStorage.getItem("isFaculty")
     const doses = localStorage.getItem("doses")
-    console.log(isFaculty)
-    console.log(doses)
-    if(isFaculty == "true" && doses == "2"){
-      console.log("hhhh")
+    if((isFaculty === "true") && (doses === "2" || doses === "1")){
       customButtons = {
         addEventButton: {
           text: "Add Event",
@@ -109,23 +104,13 @@ class MyCalendar extends React.Component{
                 dayGridPlugin,
                 interactionPlugin,
                 timeGridPlugin
-              ]}
-              initialView = "dayGridMonth"
-              events = {this.props.events}
-              customButtons={customButtons}
-              headerToolbar={headerToolbar}
-              // editable={true}
-              selectMirror={true}
-              dayMaxEvents={true}
-              // weekends={this.state.weekendsVisible}
-              // initialEvents={INITIAL_EVENTS}
-              // select={this.handleDateSelect}
-              // eventContent={renderEventContent}
+              ]} initialView = "dayGridMonth" events = {this.props.events}
+              customButtons={customButtons} headerToolbar={headerToolbar}
+              selectMirror={true} dayMaxEvents={true}
               eventClick={this.handleEventClick}
-              // eventsSet={this.handleEvents}
             />
         </div>
-    </div>
+      </div>
     )
   }
 

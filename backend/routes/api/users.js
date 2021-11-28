@@ -3,13 +3,10 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
-
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
-
 const UserModel = require("../../models/user");
 
-// "/profile?userId=1"
 router.get("/profile", (req, res) => {
     const userId = req.query.userId
     if(userId === undefined){
@@ -100,7 +97,6 @@ router.get("/getUserProfile", (req, res) => {
         const errors = {
             message: "Internal Server Error"
         }
-        // errors.message = err.response.data
         return res.status(500).json(errors)
     })
 })
@@ -134,11 +130,9 @@ router.patch("/editProfile", (req, res) => {
             return res.status(500).json(errors)
         })
     }).catch(err => {
-        // console.log(err.response.data)
         const errors = {
             message: "Internal Server Error"
         }
-        // errors.messsage = err.response.data
         return res.status(500).json(errors)
     })
 })

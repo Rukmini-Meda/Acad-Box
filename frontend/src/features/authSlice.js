@@ -1,6 +1,7 @@
 import { isEmpty } from "lodash";
 import { TYPES } from "../utils/constants";
 
+// Actions
 export const setUserLoading = () => {
     return {
         type: TYPES.USER_LOADING
@@ -20,17 +21,17 @@ export const setCurrentUser = (decoded) => {
     }
 }
 
+// Initial State
 const initialState = {
     isAuthenticated: false,
     user: {},
     loading: false,
 }
 
+// Reducer for this slice
 export const authReducer = (state = initialState, action) => {
     switch(action.type){
         case TYPES.SET_CURRENT_USER:{
-            console.log(action);
-            console.log(isEmpty(action.payload))
             return {
                 ...state,
                 isAuthenticated: !isEmpty(action.payload),
@@ -52,6 +53,7 @@ export const authReducer = (state = initialState, action) => {
     }
 }
 
+// Selectors
 export const selectAuthenticationStatus = (state) => {
     return state.isAuthenticated
 }

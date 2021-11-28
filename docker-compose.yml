@@ -14,8 +14,8 @@ services:
       - "5000:5000"
     # depends_on:
     #   - serviceName
-    env_file:
-      - ./backend/.env
+    # env_file:
+    #   - ./backend/.env
     environment:
       - NODE_ENV=production
     networks:

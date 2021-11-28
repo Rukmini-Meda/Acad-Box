@@ -25,12 +25,10 @@ class MainHome extends React.Component{
                     <Button variant="contained" color="secondary">Get Started</Button>
                 </Link>
                 
-                <Button variant="contained" color="secondary" onClick={(e) => this.props.logoutUser()}>Logout</Button>
-                
+                <Button variant="contained" color="secondary"
+                    onClick={(e) => this.props.logoutUser()}>Logout</Button>
             </Container>
         )
-
-        
         if(this.props.auth.isAuthenticated){
             return getStartedButton;
         }

@@ -3,8 +3,6 @@ import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { rest } from "lodash";
-import Header from "../header/header";
-import SizedBox from "../CustomSizedBox/sized_box";
 
 const PrivateRoute = ({
     component: Component,

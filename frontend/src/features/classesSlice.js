@@ -1,5 +1,6 @@
 import { TYPES } from "../utils/constants"
 
+// Actions
 export const setClass = (event) => {
     return {
         type: TYPES.SET_CLASS,
@@ -14,11 +15,13 @@ export const setClasses = (events) => {
     }
 }
 
+// Initial State
 const initialState = {
     event: {},
     events: []
 }
 
+// Reducer
 export const classesReducer = (state = initialState, action) => {
     switch(action.type){
         case TYPES.SET_CLASS:
@@ -36,11 +39,11 @@ export const classesReducer = (state = initialState, action) => {
     }
 }
 
+// Selectors
 export const selectAllClasses = (state) => {
     return state.classes
 }
 
 export const selectClassById = (classId, classes) => {
-    console.log(classes)
     return classes.filter(classData => classData.id === classId)
 }

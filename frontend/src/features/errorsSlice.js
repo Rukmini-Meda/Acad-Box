@@ -1,5 +1,6 @@
 import { TYPES } from "../utils/constants"
 
+// Actions
 export const setEditEventErrors = (errors) => {
     return {
         type: TYPES.SET_EDIT_EVENT_ERRORS,
@@ -49,6 +50,7 @@ export const setProfileErrors = (errors) => {
     }
 }
 
+// Initial State
 const initialState = {
     register: {
         username: "",
@@ -76,6 +78,8 @@ const initialState = {
     profile: {},
     editEvent: {}
 }
+
+// Reducer for this slice
 export function errorsReducer(state = initialState, action){
     switch(action.type){
         case TYPES.SET_CREATE_CLASS_ERRORS:

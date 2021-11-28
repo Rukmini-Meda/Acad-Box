@@ -1,7 +1,6 @@
 import React from "react"
 import {Container, Typography, Box, CssBaseline, Grid, TextField, Button} from "@material-ui/core"
-import SizedBox from "../../components/CustomSizedBox/sized_box.js"
-import {Link} from "react-router-dom"
+import SizedBox from "../../components/customSizedBox/sized_box.js"
 import {PropTypes} from "prop-types"
 import {createClass} from "../../services/eventService"
 import {withRouter} from "react-router"
@@ -29,9 +28,6 @@ class EventForm extends React.Component{
 
     onSubmit = (e) => {
         e.preventDefault()
-        console.log("About to submit")
-        console.log("Event details are: ")
-        console.log(this.state)
         const event = Event.toDict(
             this.state.courseName,
             this.state.courseCode,
@@ -59,12 +55,12 @@ class EventForm extends React.Component{
                     <SizedBox/>
                     <CssBaseline />
                     <Box
-                    sx={{
-                        marginTop: 8,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}
+                        sx={{
+                            marginTop: 8,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                        }}
                     >
                     {
                         errors && errors.message &&
@@ -78,76 +74,75 @@ class EventForm extends React.Component{
                         <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField
-                            autoComplete="course-name"
-                            name="courseName"
-                            required
-                            fullWidth
-                            id="courseName"
-                            label="Course Name"
-                            autoFocus
-                            onChange={this.onChange}
-                            value={this.state.courseName}
-                            error={!isEmpty(errors.courseName)}
-                            helperText={errors.courseName}
-                            type="text"
-                            className={classNames("",{
-                                invalid: errors.courseName
-                            })}
+                                autoComplete="course-name"
+                                name="courseName"
+                                required
+                                fullWidth
+                                id="courseName"
+                                label="Course Name"
+                                autoFocus
+                                onChange={this.onChange}
+                                value={this.state.courseName}
+                                error={!isEmpty(errors.courseName)}
+                                helperText={errors.courseName}
+                                type="text"
+                                className={classNames("",{
+                                    invalid: errors.courseName
+                                })}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                            required
-                            fullWidth
-                            id="courseCode"
-                            label="Course Code"
-                            name="courseCode"
-                            autoComplete="course-code"
-                            onChange={this.onChange}
-                            value={this.state.courseCode}
-                            error={!isEmpty(errors.courseCode)}
-                            helperText={errors.courseCode}
-                            type="text"
-                            className={classNames("",{
-                                invalid: errors.courseCode
-                            })}
+                                required
+                                fullWidth
+                                id="courseCode"
+                                label="Course Code"
+                                name="courseCode"
+                                autoComplete="course-code"
+                                onChange={this.onChange}
+                                value={this.state.courseCode}
+                                error={!isEmpty(errors.courseCode)}
+                                helperText={errors.courseCode}
+                                type="text"
+                                className={classNames("",{
+                                    invalid: errors.courseCode
+                                })}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                            required
-                            fullWidth
-                            id="numberOfStudents"
-                            label="Number of Students"
-                            name="numberOfStudents"
-                            autoComplete="numberOfStudents"
-                            onChange={this.onChange}
-                            value={this.state.numberOfStudents}
-                            error={!isEmpty(errors.numberOfStudents)}
-                            helperText={errors.numberOfStudents}
-                            className={classNames("",{
-                                invalid: errors.numberOfStudents
-                            })}
+                                required
+                                fullWidth
+                                id="numberOfStudents"
+                                label="Number of Students"
+                                name="numberOfStudents"
+                                autoComplete="numberOfStudents"
+                                onChange={this.onChange}
+                                value={this.state.numberOfStudents}
+                                error={!isEmpty(errors.numberOfStudents)}
+                                helperText={errors.numberOfStudents}
+                                className={classNames("",{
+                                    invalid: errors.numberOfStudents
+                                })}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <TextField
-                            required
-                            fullWidth
-                            id="percentageOfStudentsAllowed"
-                            label="Percentage of students allowed"
-                            name="percentageOfStudentsAllowed"
-                            autoComplete="percentageOfStudentsAllowed"
-                            onChange={this.onChange}
-                            value={this.state.percentageOfStudentsAllowed}
-                            error={!isEmpty(errors.percentageOfStudentsAllowed)}
-                            helperText={errors.percentageOfStudentsAllowed}
-                            className={classNames("",{
-                                invalid: errors.percentageOfStudentsAllowed
-                            })}
+                                required
+                                fullWidth
+                                id="percentageOfStudentsAllowed"
+                                label="Percentage of students allowed"
+                                name="percentageOfStudentsAllowed"
+                                autoComplete="percentageOfStudentsAllowed"
+                                onChange={this.onChange}
+                                value={this.state.percentageOfStudentsAllowed}
+                                error={!isEmpty(errors.percentageOfStudentsAllowed)}
+                                helperText={errors.percentageOfStudentsAllowed}
+                                className={classNames("",{
+                                    invalid: errors.percentageOfStudentsAllowed
+                                })}
                             />
                         </Grid>
-                        
                         <Grid item xs={12}>
                             <TextField
                                 label="Start Time"
@@ -184,21 +179,21 @@ class EventForm extends React.Component{
                                 }
                             />
                         </Grid>
-                        </Grid>
-                        <SizedBox/>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                            color="secondary"
-                            >
+                    </Grid>
+                    <SizedBox/>
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                        color="secondary"
+                    >
                         Create Class
-                        </Button>
-                    </Box>
-                    </Box>
-                </Container>
-            </>
+                    </Button>
+                </Box>
+                </Box>
+            </Container>
+        </>
       )
     }
 }

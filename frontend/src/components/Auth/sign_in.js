@@ -1,7 +1,6 @@
 import React from "react";
-import {Container, Box, Grid, TextField, CssBaseline, Typography, Button, FormHelperText} from "@material-ui/core";
+import {Container, Box, TextField, CssBaseline, Typography, Button } from "@material-ui/core";
 import classnames from "classnames";
-import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../services/authService";
@@ -61,12 +60,12 @@ class LogIn extends React.Component{
                     <Container component="main" maxWidth="xs">
                         <CssBaseline />
                         <Box
-                        sx={{
-                            marginTop: 150,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
-                        }}
+                            sx={{
+                                marginTop: 150,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                            }}
                         >
                         <h2>Acad-Box</h2> 
                         <Typography component="h1" variant="h5">
@@ -74,64 +73,51 @@ class LogIn extends React.Component{
                         </Typography>
                         <Box component="form" onSubmit={this.onSubmit} noValidate sx={{ mt: 1 }}>
                             <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
-                            autoFocus
-                            type="email"
-                            className={classnames("",{
-                                invalid: errors.email
-                            })}
-                            error={!isEmpty(errors.email)}
-                            helperText={errors.email}
-                            onChange={this.onChange}
-                            value={this.state.email}
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email Address"
+                                name="email"
+                                autoComplete="email"
+                                autoFocus
+                                type="email"
+                                className={classnames("",{
+                                    invalid: errors.email
+                                })}
+                                error={!isEmpty(errors.email)}
+                                helperText={errors.email}
+                                onChange={this.onChange}
+                                value={this.state.email}
                             />
                             <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                            onChange={this.onChange}
-                            value={this.state.password}
-                            error={!isEmpty(errors.password)}
-                            helperText={errors.password}
-                            className={classnames("",{
-                                invalid: errors.password
-                            })}
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="password"
+                                label="Password"
+                                type="password"
+                                id="password"
+                                autoComplete="current-password"
+                                onChange={this.onChange}
+                                value={this.state.password}
+                                error={!isEmpty(errors.password)}
+                                helperText={errors.password}
+                                className={classnames("",{
+                                    invalid: errors.password
+                                })}
                             />
                             <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                            color="secondary"
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                                color="secondary"
                             >
-                            Log In
+                                Log In
                             </Button>
-                            <Grid container className="dummy">
-                            {/* <Grid item xs class="m-10">
-                                <Link href="#" variant="body2">
-                                Forgot password?
-                                </Link>
-                            </Grid> */}
-                            <Grid item>
-                                {/* <Link href="#" variant="body2">
-                                {"Don't have an account? Sign Up"}
-                                </Link> */}
-                            </Grid>
-                            </Grid>
                         </Box>
-                        </Box>
-                        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
+                    </Box>
                 </Container>
             </>
         );

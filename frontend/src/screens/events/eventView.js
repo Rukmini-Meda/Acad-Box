@@ -1,10 +1,9 @@
 import React from "react";
 import {Container, Button} from "@material-ui/core"
-import {connect, useSelector} from "react-redux"
+import {connect} from "react-redux"
 import {withRouter} from "react-router-dom"
 import PropTypes from "prop-types"
 import {fetchEventDetails} from "../../services/eventService"
-import { selectClassById } from "../../features/classesSlice.js";
 import Header from "../../components/header/header"
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,7 +11,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import SizedBox from "../../components/CustomSizedBox/sized_box"
+import SizedBox from "../../components/customSizedBox/sized_box"
 import {bookSeat, editEvent, cancelEvent} from "../../services/eventService"
 import Alert from "@mui/material/Alert"
 import jwt_decode from "jwt-decode"
@@ -29,7 +28,6 @@ class EventView extends React.Component{
     }
 
     onEdit = (e) => {
-        console.log(e.target.id)
         const value = window.prompt("Enter your new value for the field " + e.target.id)
         if(value == null){
             return;
@@ -44,16 +42,7 @@ class EventView extends React.Component{
         this.props.cancelEvent(this.props.match.params.eventId, this.props.history)
     }
 
-    onReschedule = (e) => {
-        // this.props.rescheduleEvent
-    }
-
-    onRepeat = (e) => {
-
-    }
-
-   render(){
-        const eventId = this.props.match.params.eventId
+    render(){
         const classData = this.props.classData
         const total_seats = Math.floor(classData.numberOfStudents * (classData.percentageOfStudentsAllowed/100))
         const seats = classData.seats
@@ -95,8 +84,8 @@ class EventView extends React.Component{
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableBody>
                             <TableRow
-                            key="classId"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="classId"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Class ID
@@ -104,68 +93,62 @@ class EventView extends React.Component{
                                 <TableCell>{classData._id} </TableCell>
                             </TableRow>
                             <TableRow
-                            key="courseName"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="courseName"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Course Name 
                                 </TableCell>
                                 <TableCell>{classData.courseName} </TableCell>
-                                {/* <TableCell><Button id="courseName" variant="contained" color="primary" onClick={this.onEdit}>Edit</Button></TableCell> */}
                             </TableRow>
                             <TableRow
-                            key="courseCode"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="courseCode"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Course Code
                                 </TableCell>
                                 <TableCell>{classData.courseCode}</TableCell>
-                                {/* <TableCell> <Button id="courseCode" variant="contained" color="primary" onClick={this.onEdit}>Edit</Button></TableCell> */}
                             </TableRow>
                             <TableRow
-                            key="numberOfStudents"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="numberOfStudents"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Number of Students
                                 </TableCell>
                                 <TableCell>{classData.numberOfStudents}</TableCell>
-                                {/* <TableCell> <Button id="numberOfStudents" variant="contained" color="primary" onClick={this.onEdit}>Edit</Button></TableCell> */}
                             </TableRow>
                             <TableRow
-                            key="percentageOfStudentsAllowed"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="percentageOfStudentsAllowed"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Percentage of Students Allowed
                                 </TableCell>
                                 <TableCell>{classData.percentageOfStudentsAllowed}</TableCell>
-                                {/* <TableCell> <Button id="percentageOfStudentsAllowed" variant="contained" color="primary" onClick={this.onEdit}>Edit</Button></TableCell> */}
                             </TableRow>
                             <TableRow
-                            key="startTime"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="startTime"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Start Time
                                 </TableCell>
                                 <TableCell>{startTimeObject.getDate()} - {startTimeObject.getMonth()} - {startTimeObject.getFullYear()} at {startTimeObject.getHours()}:{startTimeObject.getMinutes()}:{startTimeObject.getSeconds()} </TableCell>
-                                {/* <TableCell> <Button id="startTime" variant="contained" color="primary" onClick={this.onEdit}>Edit</Button></TableCell> */}
                             </TableRow>
                             <TableRow
-                            key="endTime"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="endTime"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     End Time
                                 </TableCell>
                                 <TableCell>{endTimeObject.getDate()} - {endTimeObject.getMonth()} - {endTimeObject.getFullYear()} at {endTimeObject.getHours()}:{endTimeObject.getMinutes()}:{endTimeObject.getSeconds()}</TableCell>
-                                {/* <TableCell> <Button id="endTime" variant="contained" color="primary" onClick={this.onEdit}>Edit</Button></TableCell> */}
                             </TableRow>
                             <TableRow
-                            key="seats"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="seats"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Number of seats booked
@@ -173,8 +156,8 @@ class EventView extends React.Component{
                                 <TableCell>{total_seats - seats}</TableCell>
                             </TableRow>
                             <TableRow
-                            key="availableSeats"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="availableSeats"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Available Seats

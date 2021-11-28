@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar, Box, Toolbar, Typography, Button, Container, IconButton} from "@material-ui/core"
+import {AppBar, Box, Toolbar, Button, IconButton} from "@material-ui/core"
 import {logoutUser} from "../../services/authService"
 import {connect} from "react-redux"
 import {withRouter} from "react-router-dom"
@@ -11,47 +11,47 @@ class Header extends React.Component{
 
   onClickLogout = (e) => {
     e.preventDefault()
-    console.log("Here")
     this.props.logoutUser()
-    console.log("Logged out successfully")
   }
 
   goHome = (e) => {
     e.preventDefault()
-    console.log("Going to home page")
     this.props.history.push("/")
   }
 
   render(){
-    const authSection = (<Toolbar>
-    <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-          onClick={(e) => this.props.history.goBack()}
-        >
-          <ArrowBackIcon/>
-        </IconButton>
-      <IconButton
-          size="large"
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2 }}
-          onClick={this.goHome}
-        >
-          <HomeIcon />
-        </IconButton>
-        <div style={{flex: 1}}>
-          <Button color="inherit" onClick={() => this.props.history.push("/profile")}>Profile</Button>
-          <Button color="inherit" onClick={this.onClickLogout}>Logout</Button>
-        </div>
-      </Toolbar>)
+    const authSection = (
+        <Toolbar>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            onClick={(e) => this.props.history.goBack()}
+          >
+            <ArrowBackIcon/>
+          </IconButton>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            onClick={this.goHome}
+          >
+            <HomeIcon />
+          </IconButton>
+          <div style={{flex: 1}}>
+            <Button color="inherit" onClick={() => this.props.history.push("/profile")}>Profile</Button>
+            <Button color="inherit" onClick={this.onClickLogout}>Logout</Button>
+          </div>
+        </Toolbar>
+    )
 
-    const notAuthSection = (<Toolbar>
-      <IconButton
+    const notAuthSection = (
+      <Toolbar>
+        <IconButton
           size="large"
           edge="start"
           color="inherit"
@@ -71,10 +71,13 @@ class Header extends React.Component{
         >
           <HomeIcon />
         </IconButton>
-      </Toolbar>)
-      const loader = (
-        <CircularProgress />
-      )
+      </Toolbar>
+    )
+
+    const loader = (
+      <CircularProgress />
+    )
+
     return (
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">

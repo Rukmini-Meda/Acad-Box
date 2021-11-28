@@ -6,15 +6,12 @@ import {connect} from "react-redux"
 import {withRouter} from "react-router-dom"
 import {fetchUserProfile, editProfile} from "../../services/userService"
 import jwt_decode from "jwt-decode"
-import SizedBox from "../../components/CustomSizedBox/sized_box"
 import isEmpty from "is-empty"
 
 class UserProfile extends React.Component{
 
     componentDidMount(){
-        console.log(localStorage)
         const userId = jwt_decode(localStorage.getItem("jwtToken")).id
-        console.log(userId)
         this.props.fetchUserProfile(userId)
     }
 
@@ -49,8 +46,8 @@ class UserProfile extends React.Component{
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableBody>
                             <TableRow
-                            key="userId"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="userId"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     User ID
@@ -58,8 +55,8 @@ class UserProfile extends React.Component{
                                 <TableCell>{userData.id}</TableCell>
                             </TableRow>
                             <TableRow
-                            key="firstName"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="firstName"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     First Name
@@ -67,8 +64,8 @@ class UserProfile extends React.Component{
                                 <TableCell>{userData.firstName}</TableCell>
                             </TableRow>
                             <TableRow
-                            key="lastName"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="lastName"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Last Name
@@ -76,18 +73,21 @@ class UserProfile extends React.Component{
                                 <TableCell>{userData.lastName}</TableCell>
                             </TableRow>
                             <TableRow
-                            key="username"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="username"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Username
                                 </TableCell>
                                 <TableCell>{userData.username}</TableCell>
-                                <TableCell><Button id="username" variant="contained" color="primary" onClick={this.onEdit}>Edit</Button></TableCell>
+                                <TableCell>
+                                    <Button id="username" variant="contained" color="primary"
+                                    onClick={this.onEdit}>Edit</Button>
+                                </TableCell>
                             </TableRow>
                             <TableRow
-                            key="email"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="email"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Email ID
@@ -95,8 +95,8 @@ class UserProfile extends React.Component{
                                 <TableCell>{userData.email}</TableCell>
                             </TableRow>
                             <TableRow
-                            key="doses"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="doses"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Number of vaccination doses done
@@ -104,8 +104,8 @@ class UserProfile extends React.Component{
                                 <TableCell>{userData.doses}</TableCell>
                             </TableRow>
                             <TableRow
-                            key="vaccine"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="vaccine"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Vaccine Name
@@ -113,8 +113,8 @@ class UserProfile extends React.Component{
                                 <TableCell>{userData.vaccine}</TableCell>
                             </TableRow>
                             <TableRow
-                            key="role"
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                key="role"
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                             >
                                 <TableCell component="th" scope="row">
                                     Role

@@ -6,12 +6,6 @@ const validateClassesFormInput = require("../../validation/classesForm")
 const emailCredentials = require("../../config/mail")
 const nodemailer = require('nodemailer')
 
-// BOOK a seat - /bookSeat?seatId=&studentId=&eventId=
-// REPEAT an event
-// Email notification for students - /notifyStudent? => look at this more, similarly for faculty
-// Email notification for all users 10 minutes before an event starts
-// Show an alert box like in google classroom 10 minutes before in frontend
-
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -73,7 +67,7 @@ router.patch("/bookSeat", (req, res) => {
             if(event.seats <= 0){
                 return res.status(400).json("No available seats. Please try again later")
             }
-        UserModel.findOne({
+            UserModel.findOne({
                 _id: studentId
             }).then(student => { 
                 if(event.registeredStudents !== undefined){
@@ -141,7 +135,6 @@ router.patch("/bookSeat", (req, res) => {
 })
 
 
-// "/removeEvent?eventId=1"
 router.delete("/removeEvent", (req, res) => {
     const eventId = req.query.eventId
     if(eventId === undefined){
