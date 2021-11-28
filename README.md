@@ -90,7 +90,7 @@ Supporting Documents including .env files can be found in this [link](https://dr
 
 ## Demo Video
 
-Demo Video can be found at this [link]()
+Demo Video can be found at this [link](https://drive.google.com/file/d/1EXTzpord1F8c7u2QlfP3BCnrTbQppJfu/view?usp=sharing)
 
 ## Tech Stack
 ### Frontend
@@ -112,7 +112,8 @@ Demo Video can be found at this [link]()
 
 ## Application Architecture
 
-![Application Architecture](https://user-images.githubusercontent.com/44504940/143773070-a7440bb7-1130-4dee-8a17-cb6974233210.jpg)
+![Application Architecture](https://user-images.githubusercontent.com/44504940/143780012-7018da2d-ee95-4145-9343-3326f5a0ec9b.jpg)
+
 
 
 
